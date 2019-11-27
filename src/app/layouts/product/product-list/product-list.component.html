@@ -9,10 +9,11 @@
       </div>
     </div>
   </div>
+
   <div class="row">
     <div class="col-md-3">
       <div class="form-group">
-        <label for="brand_select">Brand:</label>
+        <label for="brand_select">Категорія:</label>
         <select class="form-control" name="" id="brand_select" [(ngModel)]="selectedBrand">
           <option *ngFor="let brand of brands" [ngValue]="brand">{{brand}}</option>
         </select>
@@ -20,20 +21,20 @@
     </div>
     <div class="col-md-3">
       <div class="form-group">
-        <label for="price_select_down">From:</label>
+        <label for="price_select_down">Ціна від:</label>
         <input class="form-control" name="" id="price_select_down" [(ngModel)]="selectedPriceDown">
 
       </div>
     </div>
 
-
     <div class="col-md-3">
       <div class="form-group">
-        <label for="price_select">To:</label>
+        <label for="price_select">До:</label>
         <input class="form-control" name="" id="price_select" [(ngModel)]="selectedPrice">
       </div>
     </div>
   </div>
+  
   <div class="col-md-9">
 
     <div class="container">
@@ -73,14 +74,12 @@
                   </p>
                   <!--Card footer-->
                   <div class="card-footer">
-                    <span class="left">${{ product.productPrice }}</span>
+                    <span class="left">грн {{ product.productPrice }}</span>
                     <span class="right">
                       <a placement="top" mdbTooltip="Add to Wishlist" container="body" (click)="addFavourite(product)">
                         <i class="fa fa-heart"></i>
                       </a>
-                      <a placement="top" mdbTooltip="Add to Cart" container="body" (click)="addToCart(product)">
-                        <i class="fa fa-shopping-cart"></i>
-                      </a>
+                     
                       <a placement="top" mdbTooltip="Remove Product" container="body" *ngIf="authService.isAdmin()"
                         (click)="removeProduct(product.$key)">
                         <i class="fa fa-trash"></i>
